@@ -37,3 +37,7 @@
     (println "\nBuilding JAR...")
     (b/uber opts))
   opts)
+
+(defn noddy
+  [opts]
+  (println "Doing a noddy thing"))
