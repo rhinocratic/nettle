@@ -1,0 +1,25 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure     {:mvn/version "1.11.1"}
+
+        ;; System config
+        integrant/integrant     {:mvn/version "0.8.0"}
+        integrant/repl          {:mvn/version "0.3.2"}
+        aero/aero               {:mvn/version "1.1.6"}
+
+        ;; Server
+        compojure/compojure     {:mvn/version "1.7.0"}
+        ring/ring               {:mvn/version "1.10.0"}
+        ring/ring-defaults      {:mvn/version "0.3.4"}
+        ring/ring-jetty-adapter {:mvn/version "1.11.0-alpha4"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "rhinocratic.nettle"]}
+  :run-x {:ns-default rhinocratic.nettle
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:git/tag "v0.9.2" :git/sha "fe6b140"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
